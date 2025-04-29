@@ -16,7 +16,7 @@ import angular from "./tech/Angular.png";
 import azure from "./tech/Azure.png";
 import aws from "./tech/AWS.png";
 import dotNET from "./tech/dotNET.png";
-import spring from "./tech/spring.png";
+import spring from "./tech/Spring.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
