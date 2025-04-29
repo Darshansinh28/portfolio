@@ -8,7 +8,7 @@ import { useAnimations } from "@react-three/drei";
 
 const Robot = () => {
   const group = useRef();
-  const { scene, animations } = useGLTF("/robot_playground.glb");
+  const { scene, animations } = useGLTF("./public/robot_playground.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
