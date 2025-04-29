@@ -11,7 +11,7 @@ import ipath from "./company/ipath.png";
 import shriominfotech from "./company/shriominfotech.png";
 
 import csharp from "./tech/csharp.png";
-import java from "./tech/java.png";
+import java from "./tech/Java.png";
 import angular from "./tech/angular.png";
 import azure from "./tech/azure.png";
 import aws from "./tech/aws.png";
@@ -26,8 +26,8 @@ import reactjs from "./tech/reactjs.png";
 import typescript from "./tech/typescript.png";
 
 import warzone from "./projects/warzone.png";
-import Twitter from "./projects/twitter.png";
-import OpenTracksApp from "./projects/openTracksApp.png";
+import Twitter from "./projects/Twitter.png";
+import OpenTracksApp from "./projects/OpenTracksApp.png";
 
 import backend from "./website.png";
 import cloud from "./server.png";
