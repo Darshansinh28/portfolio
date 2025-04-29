@@ -12,9 +12,9 @@ import shriominfotech from "./company/shriominfotech.png";
 
 import csharp from "./tech/csharp.png";
 import java from "./tech/Java.png";
-import angular from "./tech/angular.png";
-import azure from "./tech/azure.png";
-import aws from "./tech/aws.png";
+import angular from "./tech/Angular.png";
+import azure from "./tech/Azure.png";
+import aws from "./tech/AWS.png";
 import dotNET from "./tech/dotNET.png";
 import spring from "./tech/spring.png";
 import docker from "./tech/docker.png";
