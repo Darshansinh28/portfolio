@@ -33,7 +33,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(import.meta.env.VITE_FORMSPREE_ENDPOINT, {
+      const response = await fetch("https://formspree.io/f/mwpoplzz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,59 +84,101 @@ const Contact = () => {
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+        className="flex-[0.75] bg-black-100 p-8 rounded-2xl relative overflow-hidden border border-[#64bbbb]/10 shadow-lg"
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#64bbbb] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#64bbbb] rounded-full blur-2xl"></div>
+        </div>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
-        >
+        {/* Header */}
+        <div className="relative z-10 mb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#64bbbb] to-[#00cea8] rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <p className={styles.sectionSubText}>Let's Connect</p>
+              <h3 className={styles.sectionHeadText}>
+                <span className="block sm:hidden">Get in touch</span>
+                <span className="hidden sm:block">Contact</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+                  <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="relative z-10 flex flex-col gap-6"
+          >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
+            <span className="text-white font-medium mb-4">Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="Your name"
+              className="bg-tertiary/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary/60 text-white rounded-lg outline-none border-2 border-transparent focus:border-[#64bbbb]/30 transition-all duration-300 font-medium hover:bg-tertiary/80"
               required
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Email</span>
+            <span className="text-white font-medium mb-4">Email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="Your email"
+              className="bg-tertiary/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary/60 text-white rounded-lg outline-none border-2 border-transparent focus:border-[#64bbbb]/30 transition-all duration-300 font-medium hover:bg-tertiary/80"
               required
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className="text-white font-medium mb-4">Message</span>
             <textarea
               rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="What you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              placeholder="Ready to collaborate?"
+              className="bg-tertiary/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary/60 text-white rounded-lg outline-none border-2 border-transparent focus:border-[#64bbbb]/30 transition-all duration-300 font-medium hover:bg-tertiary/80 resize-none"
               required
             />
           </label>
 
-          <button
-            type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
+          <div className="flex items-center justify-between pt-4">
+            <div className="flex items-center gap-3 text-secondary text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#64bbbb] rounded-full animate-pulse"></div>
+                <span>Open for opportunities</span>
+              </div>
+            </div>
+            
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-[#64bbbb] to-[#00cea8] hover:from-[#00cea8] hover:to-[#64bbbb] py-3 px-8 rounded-xl outline-none text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              {loading ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Sending...</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <span>Send</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                </div>
+              )}
+            </button>
+          </div>
         </form>
       </motion.div>
 
