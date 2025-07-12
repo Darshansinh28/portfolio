@@ -35,6 +35,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+      - name: Create .env file from GitHub secrets
+        run: |
+          echo "VITE_FORMSPREE_ENDPOINT=${{ vars.VITE_FORMSPREE_ENDPOINT }}" > .env
+          echo "Environment file created with Formspree endpoint"
       - name: Install Dependencies and Build
         run: |
           npm install
